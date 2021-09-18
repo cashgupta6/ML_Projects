@@ -92,6 +92,15 @@ def check(model):
 model = [LinearRegression(),LogisticRegression(), SVC(), DecisionTreeClassifier(), Lasso(),Ridge()]
 model = check(model)
 
+"""Tesing the predicted value of model with Actual value"""
+
+arr = [0,1,2,1,1,5417,4196.0,267.0,360.0,1.0,0]
+input = np.array(arr)
+predicted = model.predict([input])[0]
+Actual = df.Loan_Status.iloc[5]
+print('The Predicted value is: ', predicted)
+print('The Actual value is: ', Actual)
+
 cd /content/drive/MyDrive/Loan_status
 
 joblib.dump(model, 'model.pkl')
